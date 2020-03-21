@@ -2,10 +2,11 @@ import getCar from "../services/algorithmia";
 
 class FirstController {
   async show(req, res) {
+    const { APP_URL } = process.env;
     try {
       const { filename } = req.file;
 
-      const input = image => `http://localhost:3333/files/${image}`;
+      const input = image => `${APP_URL}/files/${image}`;
 
       const response = await getCar(input(filename));
 
