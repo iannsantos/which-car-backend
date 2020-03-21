@@ -4,8 +4,9 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "sucrase ./src -d ./dist --transforms imports"
   },
   "dependencies": {
     "algorithmia": "^0.3.10",
