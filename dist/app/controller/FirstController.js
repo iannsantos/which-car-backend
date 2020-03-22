@@ -11,10 +11,7 @@ class FirstController {
       console.log("getCar: ", response.result);
 
       if (response.result && response.result.length >= 1) {
-        const bestConfidence = response.result.find(
-          item => item.confidence === "1.00"
-        );
-
+        const bestConfidence = response.result[0];
         return res.json(bestConfidence);
       } else {
         return res.json({ error: true, message: "Not found car" });
