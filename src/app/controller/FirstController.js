@@ -3,7 +3,10 @@ import getCar from "../services/algorithmia";
 class FirstController {
   async show(req, res) {
     try {
+      console.log("file", req.file);
+
       const { location: image } = req.file;
+
       console.log("image", image);
 
       const response = await getCar(image);
