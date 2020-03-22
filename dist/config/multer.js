@@ -1,17 +1,8 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-var _awssdk = require("aws-sdk");
-var _awssdk2 = _interopRequireDefault(_awssdk);
-var _crypto = require("crypto");
-var _crypto2 = _interopRequireDefault(_crypto);
-var _multer = require("multer");
-var _multer2 = _interopRequireDefault(_multer);
-var _multers3 = require("multer-s3");
-var _multers32 = _interopRequireDefault(_multers3);
-var _path = require("path");
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _awssdk = require('aws-sdk'); var _awssdk2 = _interopRequireDefault(_awssdk);
+var _crypto = require('crypto'); var _crypto2 = _interopRequireDefault(_crypto);
+var _multer = require('multer'); var _multer2 = _interopRequireDefault(_multer);
+var _multers3 = require('multer-s3'); var _multers32 = _interopRequireDefault(_multers3);
+var _path = require('path');
 
 const {
   BUCKET_NAME,
@@ -23,14 +14,7 @@ const {
 
 const storageTypes = {
   local: _multer2.default.diskStorage({
-    destination: _path.resolve.call(
-      void 0,
-      __dirname,
-      "..",
-      "..",
-      "tmp",
-      "uploads"
-    ),
+    destination: _path.resolve.call(void 0, __dirname, "..", "..", "tmp", "uploads"),
     filename: (req, file, callback) => {
       _crypto2.default.randomBytes(15, (err, res) => {
         if (err) {
@@ -39,10 +23,7 @@ const storageTypes = {
         }
         // e a função chamada executarmos o nome do arquivo
         // o primeiro parâmetro é o erro
-        return callback(
-          null,
-          res.toString("hex") + _path.extname.call(void 0, file.originalname)
-        );
+        return callback(null, res.toString("hex") + _path.extname.call(void 0, file.originalname));
       });
     }
   }),
@@ -60,16 +41,13 @@ const storageTypes = {
         if (err) {
           return callback(err);
         }
-        return callback(
-          null,
-          res.toString("hex") + _path.extname.call(void 0, file.originalname)
-        );
+        return callback(null, res.toString("hex") + _path.extname.call(void 0, file.originalname));
       });
     }
   })
 };
 
-exports.default = {
+exports. default = {
   dest: _path.resolve.call(void 0, __dirname, "..", "..", "tmp", "uploads"),
   storage: storageTypes[STORAGE_TYPE],
   limits: {
@@ -84,13 +62,9 @@ exports.default = {
       "image/gif"
     ];
 
-    console.log(req);
-
     if (allowedMimes.includes(file.mimetype)) {
-      console.log("file", file);
       callback(null, true);
     } else {
-      console.log("file", file);
       callback(new Error("Invalid file type"));
     }
   }
