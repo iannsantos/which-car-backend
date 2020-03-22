@@ -4,7 +4,16 @@ import multer from "multer";
 import multers3 from "multer-s3";
 import { extname, resolve } from "path";
 
-const { BUCKET_NAME, STORAGE_TYPE } = process.env;
+const {
+  BUCKET_NAME,
+  STORAGE_TYPE,
+  ACCESS_KEY_ID,
+  SECRET_ACCESS_KEY
+} = process.env;
+aws.S3().config.update({
+  accessKeyId: ACCESS_KEY_ID,
+  secretAccessKey: SECRET_ACCESS_KEY
+});
 
 const storageTypes = {
   local: multer.diskStorage({
