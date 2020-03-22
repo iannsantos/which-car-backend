@@ -2,21 +2,15 @@ import getCar from "../services/algorithmia";
 
 class FirstController {
   async show(req, res) {
-    const { APP_URL, STORAGE_TYPE, STORAGE_URL } = process.env;
     try {
-      const { filename } = req.file;
+      const { location: image } = req.file;
+      console.log("image", image);
 
-      let input;
+      const response = await getCar(image);
 
-      if (STORAGE_TYPE === "local") {
-        input = image => `${APP_URL}/files/${image}`;
-      } else if (STORAGE_TYPE === "s3") {
-        input = image => `${STORAGE_URL}/${image}`;
-      }
+      console.log("getCar: ", response.result);
 
-      const response = await getCar(input(filename));
-
-      if (response.result.length >= 1) {
+      if (response.result && response.result.length >= 1) {
         const bestConfidence = response.result.find(
           item => item.confidence === "1.00"
         );

@@ -2,7 +2,6 @@ import algorithmia from "algorithmia";
 
 export default async function getCar(input) {
   const { ALGORITHMIA_API_KEY } = process.env;
-  console.log(ALGORITHMIA_API_KEY);
 
   try {
     const client = algorithmia(ALGORITHMIA_API_KEY);
