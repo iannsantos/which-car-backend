@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "algorithmia": "^0.3.10",
+    "aws-sdk": "^2.643.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "multer": "^1.4.2"
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2",
