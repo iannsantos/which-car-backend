@@ -3,7 +3,10 @@
 class FirstController {
   async show(req, res) {
     try {
+      console.log("file", req.file);
+
       const { location: image } = req.file;
+
       console.log("image", image);
 
       const response = await _algorithmia2.default.call(void 0, image);
