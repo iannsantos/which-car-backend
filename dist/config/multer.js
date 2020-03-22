@@ -4,7 +4,16 @@ var _multer = require('multer'); var _multer2 = _interopRequireDefault(_multer);
 var _multers3 = require('multer-s3'); var _multers32 = _interopRequireDefault(_multers3);
 var _path = require('path');
 
-const { BUCKET_NAME, STORAGE_TYPE } = process.env;
+const {
+  BUCKET_NAME,
+  STORAGE_TYPE,
+  ACCESS_KEY_ID,
+  SECRET_ACCESS_KEY
+} = process.env;
+_awssdk2.default.S3().config.update({
+  accessKeyId: ACCESS_KEY_ID,
+  secretAccessKey: SECRET_ACCESS_KEY
+});
 
 const storageTypes = {
   local: _multer2.default.diskStorage({
