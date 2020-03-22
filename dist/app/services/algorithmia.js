@@ -1,12 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : { default: obj };
-}
-var _algorithmia = require("algorithmia");
-var _algorithmia2 = _interopRequireDefault(_algorithmia);
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var _algorithmia = require('algorithmia'); var _algorithmia2 = _interopRequireDefault(_algorithmia);
 
-async function getCar(input) {
+ async function getCar(input) {
   const { ALGORITHMIA_API_KEY } = process.env;
 
   try {
@@ -20,5 +14,4 @@ async function getCar(input) {
     console.log(err.message);
     throw new Error(err.message);
   }
-}
-exports.default = getCar;
+} exports.default = getCar;

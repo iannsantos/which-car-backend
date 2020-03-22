@@ -7,13 +7,10 @@ var _path = require('path');
 const {
   BUCKET_NAME,
   STORAGE_TYPE,
-  ACCESS_KEY_ID,
-  SECRET_ACCESS_KEY
+  ACCESS_KEY,
+  SECRET_ACCESS_KEY,
+  DEFAULT_REGION
 } = process.env;
-_awssdk2.default.S3().config.update({
-  accessKeyId: ACCESS_KEY_ID,
-  secretAccessKey: SECRET_ACCESS_KEY
-});
 
 const storageTypes = {
   local: _multer2.default.diskStorage({
@@ -31,11 +28,15 @@ const storageTypes = {
     }
   }),
   s3: _multers32.default.call(void 0, {
-    s3: new _awssdk2.default.S3(),
+    s3: new _awssdk2.default.S3({
+      accessKeyId: ACCESS_KEY,
+      secretAccessKey: SECRET_ACCESS_KEY,
+      region: DEFAULT_REGION
+    }),
     bucket: BUCKET_NAME,
     contentType: _multers32.default.AUTO_CONTENT_TYPE,
     acl: "public-read",
-    key: (req, res, callback) => {
+    key: (req, file, callback) => {
       _crypto2.default.randomBytes(15, (err, res) => {
         if (err) {
           return callback(err);
