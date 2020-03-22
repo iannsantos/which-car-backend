@@ -56,6 +56,7 @@ export default {
   fileFilter: (req, file, callback) => {
     const allowedMimes = [
       "image/jpeg",
+      "image/jpg",
       "image/pjpeg",
       "image/png",
       "image/gif"
