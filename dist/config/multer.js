@@ -58,9 +58,15 @@ exports. default = {
       "image/jpeg",
       "image/jpg",
       "image/pjpeg",
-      "image/png",
-      "image/gif"
+      "image/png"
+      // "image/gif"
     ];
+
+    const fileExt = file.originalname.split(".");
+
+    if (file.mimetype === "application/octet-stream") {
+      file.mimetype = `image/${fileExt[fileExt.length - 1]}`;
+    }
 
     if (allowedMimes.includes(file.mimetype)) {
       callback(null, true);
