@@ -50,9 +50,6 @@ const storageTypes = {
 export default {
   dest: resolve(__dirname, "..", "..", "tmp", "uploads"),
   storage: storageTypes[STORAGE_TYPE],
-  limits: {
-    fileSize: 2 * 1024 * 1024
-  },
   fileFilter: (req, file, callback) => {
     const allowedMimes = [
       "image/jpeg",
@@ -67,6 +64,8 @@ export default {
     if (file.mimetype === "application/octet-stream") {
       file.mimetype = `image/${fileExt[fileExt.length - 1]}`;
     }
+
+    console.log(file);
 
     if (allowedMimes.includes(file.mimetype)) {
       callback(null, true);
