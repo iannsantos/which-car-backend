@@ -1,6 +1,6 @@
 import getCar from "../services/algorithmia";
 
-class FirstController {
+class CarController {
   async show(req, res) {
     try {
       console.log("file", req.file);
@@ -25,4 +25,4 @@ class FirstController {
   }
 }
 
-export default new FirstController();
+export default new CarController();

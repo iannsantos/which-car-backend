@@ -18,11 +18,8 @@ const storageTypes = {
     filename: (req, file, callback) => {
       crypto.randomBytes(15, (err, res) => {
         if (err) {
-          // o parâmetro de callback do filename é usado para retornar o erro, caso tenha
           return callback(err);
         }
-        // e a função chamada executarmos o nome do arquivo
-        // o primeiro parâmetro é o erro
         return callback(null, res.toString("hex") + extname(file.originalname));
       });
     }
@@ -56,7 +53,6 @@ export default {
       "image/jpg",
       "image/pjpeg",
       "image/png"
-      // "image/gif"
     ];
 
     const fileExt = file.originalname.split(".");

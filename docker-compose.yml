@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  whichcar:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./:/app"
+    ports:
+      - "3333:3333"

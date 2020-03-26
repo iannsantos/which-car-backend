@@ -21,9 +21,5 @@
   "devDependencies": {
     "nodemon": "^2.0.2",
     "sucrase": "^3.12.1"
-  },
-  "engines": {
-    "node": "13.5",
-    "yarn": "1.22"
   }
 }
