@@ -31,14 +31,14 @@ git clone https://github.com/iannsantos/which-car-backend
 ```
 2. Open the project folder in terminal (or CMD on Windows) and run some command below:
 
-With Yarn:
-```
-yarn
-```
-With NPM:
-```
-npm install
-```
+  With Yarn:
+  ```
+  yarn
+  ```
+  With NPM:
+  ```
+  npm install
+  ```
 3. Open the code in your favorite editor (I recommend VSCode).
 4. Copy the .env.example to .env and insert your keys.
 5. If you already have Docker Compose, run:
@@ -46,14 +46,15 @@ npm install
 docker-compose up
 ```
 6. If you don't have Docker Compose, run:
-With Yarn:
-```
-yarn dev
-```
-With NPM:
-```
-npm run dev
-```
+
+  With Yarn:
+  ```
+  yarn dev
+  ```
+  With NPM:
+  ```
+  npm run dev
+  ```
 7. Now, you are ready!
 
 ## Endpoints
