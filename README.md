@@ -5,7 +5,7 @@ WhichCar - Backend
 </h1>
 
 <p align="center">This is a backend of the <a target="_blank" href="https://github.com/iannsantos/which-car-mobile">WhichCar mobile app</a>.</p>
-<p align="center">The server is host on <a target="_blank" href="https://heroku.com">Heroku</a> and save images on the <a target="_blank" href="https://aws.amazon.com/pt/s3/">Amazon S3</a> to send link to <a href="rithmia.com/algorithms/LgoBE/CarMakeandModelRecognition" target="_blank">Algorithmia API</a> and get informations of the car.</p>
+<p align="center">The server is host on <a target="_blank" href="https://heroku.com">Heroku</a> and save images on the <a target="_blank" href="https://aws.amazon.com/pt/s3/">Amazon S3</a> to send link to <a href="https://algorithmia.com/algorithms/LgoBE/CarMakeandModelRecognition" target="_blank">Algorithmia API</a> and get informations of the car.</p>
 
 <p align="center">
   <a href="https://opensource.org/licenses/MIT">
